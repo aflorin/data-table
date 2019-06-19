@@ -5,8 +5,8 @@ import * as _ from 'lodash';
 @Component({
   selector: 'afBootstrapPaginator',
   template: `
-    <afPaginator #p [afTable]="afTable">
-      <div *ngIf="p.dataLength > minRowsOnPage">
+    <afPaginator #p [afTable]="afTable" *ngIf="p.dataLength > p.rowsOnPage">
+      <div>
         Items per page:
         <ul class="list-inline">
           <li
@@ -20,10 +20,8 @@ import * as _ from 'lodash';
         </ul>
       </div>
 
-      <div *ngIf="p.dataLength > p.rowsOnPage">
-        Page: {{ p.activePage }} of {{ p.lastPage }}
-      </div>
-      <ul class="pagination" *ngIf="p.dataLength > p.rowsOnPage">
+      <div>Page: {{ p.activePage }} of {{ p.lastPage }}</div>
+      <ul class="pagination">
         <li
           class="page-item"
           [class.disabled]="p.activePage <= 1"
