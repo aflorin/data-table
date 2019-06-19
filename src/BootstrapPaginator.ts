@@ -24,17 +24,6 @@ import * as _ from 'lodash';
         <div>Page: {{ p.activePage }} of {{ p.lastPage }}</div>
         <ul class="pagination">
           <li
-            class="page-item"
-            [class.disabled]="p.activePage <= 1"
-            (click)="p.setPage(1)"
-          >
-            <a
-              class="page-link"
-              style="cursor: pointer"
-              [innerHTML]="buttons.firstBtn"
-            ></a>
-          </li>
-          <li
             class="page-item page-item--previous"
             [ngClass]="{ disabled: p.activePage === 1 }"
           >
@@ -56,17 +45,6 @@ import * as _ from 'lodash';
               [innerHTML]="buttons.nextBtn"
             ></a>
           </li>
-          <li
-            class="page-item"
-            [class.disabled]="p.activePage >= p.lastPage"
-            (click)="p.setPage(p.lastPage)"
-          >
-            <a
-              class="page-link"
-              style="cursor: pointer"
-              [innerHTML]="buttons.lastBtn"
-            ></a>
-          </li>
         </ul>
       </div>
     </afPaginator>
@@ -75,8 +53,6 @@ import * as _ from 'lodash';
 export class BootstrapPaginator implements OnChanges {
   @Input('rowsOnPageSet') rowsOnPageSet = [];
   @Input('buttons') buttons: any = {
-    firstBtn: 'First',
-    lastBtn: 'Last',
     previousBtn: 'Previous',
     nextBtn: 'Next'
   };
