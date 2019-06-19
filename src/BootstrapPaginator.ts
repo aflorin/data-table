@@ -20,7 +20,9 @@ import * as _ from 'lodash';
         </ul>
       </div>
 
-      <div>Page: {{ p.activePage }} of {{ p.lastPage }}</div>
+      <div *ngIf="p.dataLength > p.rowsOnPage">
+        Page: {{ p.activePage }} of {{ p.lastPage }}
+      </div>
       <ul class="pagination" *ngIf="p.dataLength > p.rowsOnPage">
         <li
           class="page-item"
