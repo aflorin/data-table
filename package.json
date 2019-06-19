@@ -1,6 +1,6 @@
 {
   "name": "@aflorin11/data-table",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "DataTable component for Angular framework",
   "main": "index.js",
   "scripts": {
