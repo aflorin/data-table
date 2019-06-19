@@ -8,14 +8,14 @@ import * as _ from 'lodash';
     <afPaginator #p [afTable]="afTable">
       <div *ngIf="p.dataLength > minRowsOnPage">
         Items per page
-        <ul class="pagination">
+        <ul class="list-inline">
           <li
-            class="page-item"
+            class="list-inline-item"
             *ngFor="let rows of rowsOnPageSet"
             [class.active]="p.rowsOnPage === rows"
             (click)="p.setRowsOnPage(rows)"
           >
-            <a class="page-link" style="cursor: pointer">{{ rows }}</a>
+            <a style="cursor: pointer">{{ rows }}</a>
           </li>
         </ul>
       </div>
