@@ -7,7 +7,7 @@ import * as _ from 'lodash';
   template: `
     <afPaginator #p [afTable]="afTable">
       <div class="paginator-container" *ngIf="p.dataLength > p.rowsOnPage">
-        <div>
+        <div *ngIf="rowsOnPageSet.length > 0">
           Items per page:
           <ul class="list-inline">
             <li
