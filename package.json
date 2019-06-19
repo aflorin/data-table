@@ -1,6 +1,6 @@
 {
   "name": "@aflorin11/data-table",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "description": "DataTable component for Angular framework",
   "main": "index.js",
   "scripts": {
@@ -19,20 +19,16 @@
   },
   "keywords": [
     "angular",
-    "angular6",
-    "ng",
-    "ng2",
     "table",
     "pagination",
-    "sort",
     "sorting"
   ],
-  "author": "khan.abdul1@outlook.com",
+  "author": "andriiciucflorin@gmail.com",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/mariuszfoltak/angular2-datatable/issues"
+    "url": "https://github.com/aflorin/data-table/issues"
   },
-  "homepage": "https://github.com/mariuszfoltak/angular2-datatable#readme",
+  "homepage": "https://github.com/aflorin/data-table#readme",
   "devDependencies": {
     "@angular/core": "^6.0.0",
     "@angular/compiler": "^6.0.0",
@@ -68,7 +64,6 @@
     "rxjs": "^6.0.0"
   },
   "directories": {
-    "example": "examples",
     "lib": "lib"
   }
 }

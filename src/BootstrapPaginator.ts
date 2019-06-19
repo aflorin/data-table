@@ -27,7 +27,11 @@ import * as _ from 'lodash';
           [class.disabled]="p.activePage <= 1"
           (click)="p.setPage(1)"
         >
-          <a class="page-link" style="cursor: pointer">&laquo;</a>
+          <a
+            class="page-link"
+            style="cursor: pointer"
+            [innerHTML]="buttons.firstBtn"
+          ></a>
         </li>
         <li
           class="page-item page-item--previous"
@@ -56,7 +60,11 @@ import * as _ from 'lodash';
           [class.disabled]="p.activePage >= p.lastPage"
           (click)="p.setPage(p.lastPage)"
         >
-          <a class="page-link" style="cursor: pointer">&raquo;</a>
+          <a
+            class="page-link"
+            style="cursor: pointer"
+            [innerHTML]="buttons.lastBtn"
+          ></a>
         </li>
       </ul>
     </afPaginator>
@@ -64,7 +72,12 @@ import * as _ from 'lodash';
 })
 export class BootstrapPaginator implements OnChanges {
   @Input('rowsOnPageSet') rowsOnPageSet = [];
-  @Input('buttons') buttons: any = { previousBtn: 'Previous', nextBtn: 'Next' };
+  @Input('buttons') buttons: any = {
+    firstBtn: 'First',
+    lastBtn: 'Last',
+    previousBtn: 'Previous',
+    nextBtn: 'Next'
+  };
   @Input('afTable') afTable: DataTable;
 
   minRowsOnPage = 0;
