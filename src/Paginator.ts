@@ -1,42 +1,48 @@
-import {Component, Input, SimpleChange, OnChanges, Optional} from "@angular/core";
-import {DataTable, PageEvent} from "./DataTable";
+import {
+  Component,
+  Input,
+  SimpleChange,
+  OnChanges,
+  Optional
+} from '@angular/core';
+import { DataTable, PageEvent } from './DataTable';
 
 @Component({
-    selector: "mfPaginator",
-    template: `<ng-content></ng-content>`
+  selector: 'afPaginator',
+  template: `
+    <ng-content></ng-content>
+  `
 })
 export class Paginator implements OnChanges {
+  @Input('afTable') inputAfTable: DataTable;
 
-    @Input("mfTable") inputMfTable: DataTable;
+  private afTable: DataTable;
 
-    private mfTable: DataTable;
+  public activePage: number;
+  public rowsOnPage: number;
+  public dataLength: number = 0;
+  public lastPage: number;
 
-    public activePage: number;
-    public rowsOnPage: number;
-    public dataLength: number = 0;
-    public lastPage: number;
+  public constructor(@Optional() private injectAfTable: DataTable) {}
 
-    public constructor(@Optional() private injectMfTable: DataTable) {
-    }
+  public ngOnChanges(changes: { [key: string]: SimpleChange }): any {
+    this.afTable = this.inputAfTable || this.injectAfTable;
+    this.onPageChangeSubscriber(this.afTable.getPage());
+    this.afTable.onPageChange.subscribe(this.onPageChangeSubscriber);
+  }
 
-    public ngOnChanges(changes: {[key: string]: SimpleChange}): any {
-        this.mfTable = this.inputMfTable || this.injectMfTable;
-        this.onPageChangeSubscriber(this.mfTable.getPage());
-        this.mfTable.onPageChange.subscribe(this.onPageChangeSubscriber);
-    }
+  public setPage(pageNumber: number): void {
+    this.afTable.setPage(pageNumber, this.rowsOnPage);
+  }
 
-    public setPage(pageNumber: number): void {
-        this.mfTable.setPage(pageNumber, this.rowsOnPage);
-    }
+  public setRowsOnPage(rowsOnPage: number): void {
+    this.afTable.setPage(this.activePage, rowsOnPage);
+  }
 
-    public setRowsOnPage(rowsOnPage: number): void {
-        this.mfTable.setPage(this.activePage, rowsOnPage);
-    }
-
-    private onPageChangeSubscriber = (event: PageEvent)=> {
-        this.activePage = event.activePage;
-        this.rowsOnPage = event.rowsOnPage;
-        this.dataLength = event.dataLength;
-        this.lastPage = Math.ceil(this.dataLength / this.rowsOnPage);
-    };
+  private onPageChangeSubscriber = (event: PageEvent) => {
+    this.activePage = event.activePage;
+    this.rowsOnPage = event.rowsOnPage;
+    this.dataLength = event.dataLength;
+    this.lastPage = Math.ceil(this.dataLength / this.rowsOnPage);
+  };
 }
