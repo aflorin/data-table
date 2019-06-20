@@ -8,12 +8,12 @@ import { DataTable, SortEvent } from './DataTable';
       <ng-content></ng-content>
       <span
         *ngIf="isSortedByMeAsc"
-        class="glyphicon glyphicon-triangle-top fa fa-sort-up"
+        class="triangle-top"
         aria-hidden="true"
       ></span>
       <span
         *ngIf="isSortedByMeDesc"
-        class="glyphicon glyphicon-triangle-bottom fa fa-sort-down"
+        class="triangle-bottom"
         aria-hidden="true"
       ></span>
     </a>
