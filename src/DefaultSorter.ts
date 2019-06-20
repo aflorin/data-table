@@ -7,13 +7,11 @@ import { DataTable, SortEvent } from './DataTable';
     <a style="cursor: pointer" (click)="sort()" class="text-nowrap">
       <ng-content></ng-content>
       <span
-        *ngIf="isSortedByMeAsc"
-        class="triangle-top"
-        aria-hidden="true"
-      ></span>
-      <span
-        *ngIf="isSortedByMeDesc"
-        class="triangle-bottom"
+        [ngClass]="{
+          'triangle-top': isSortedByMeAsc,
+          'triangle-bottom': isSortedByMeDesc
+        }"
+        class="triangle"
         aria-hidden="true"
       ></span>
     </a>
