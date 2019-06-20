@@ -105,4 +105,4 @@ Displays buttons for changing current page and number of displayed rows using bo
 - selector: `afBootstrapPaginator`
 - inputs
   - `rowsOnPageSet: number` - specify values for buttons to change number of diplayed rows
-  - `buttons: object = { previousBtn: string, nextBtn: string }` - specify labels for previous, next buttons
+  - `buttons: object = { firstBtn: string, previousBtn: string, nextBtn: string, lastBtn: string }` - specify labels for first, previous, next and last buttons
